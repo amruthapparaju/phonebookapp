@@ -32,9 +32,9 @@ function validate(frm){
 	 
 	 // change  custflag value to "yes" indicating client side validations are done
 	 
-	 frm.custflag.value="yes";
+	 //frm.custflag.value="yes";
 	 
-	 alert("custflag isss"+custflag);
+	// alert("custflag isss"+custflag);
 	 
 	  if(flag)
 		  return false;

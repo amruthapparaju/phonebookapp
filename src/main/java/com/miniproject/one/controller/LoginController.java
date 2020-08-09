@@ -1,7 +1,6 @@
 package com.miniproject.one.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,15 +24,11 @@ public class LoginController {
 	
 	@GetMapping(value = { "/", "/login.htm" } )
 	public String showForm( @ModelAttribute("Contactcmd") ContactDTO cmd) {
-		ContactDTO  details = new ContactDTO();
-		//model.addAttribute("Contactcmd", details);
-//System.out.println("LoginController.showForm()111111111111111");
 		return "contactinfo";
 	}
 
 	@PostMapping("/login.htm") // post back request..
 	public String handleSubmitBtn( @ModelAttribute("Contactcmd") ContactDTO cmd,RedirectAttributes attribures,BindingResult br) {
-		//System.out.println("LoginController.handleSubmitBtn()22222222222222222222222222222");
 		
 		/*
 		 * if(validator.supports(ContactDTO.class)) {
@@ -43,12 +38,9 @@ public class LoginController {
 
 		boolean resultMsg = service.saveContact(cmd);
 		if (resultMsg)
-			// model.addAttribute("successmsg","contacts saved");
 			attribures.addFlashAttribute("succMag", "Contact Register Successfully");
 		else
 			attribures.addFlashAttribute("errMag", "Contact Not Registred");
-
-		//map.put("resultMsg", resultMsg);
 		return "redirect:/success";
 	}
 	@GetMapping("/success")
